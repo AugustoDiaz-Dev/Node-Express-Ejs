@@ -1,17 +1,19 @@
 <html lang="en">
 
-<%- include("./partials/head.ejs") %>
+<%- include("../partials/head.ejs") %>
 
 <body>
 <div class="container">
-  <%- include("./partials/nav.ejs") %>
+  <%- include("../partials/nav.ejs") %>
 
   <div class="blogs content">
     <h2>Blogs</h2>
     <% if (blogs.length > 0) { %>
       <% blogs.forEach(blog => { %>
-        <h3 class="title"><%= blog.title %></h3>
-        <p class="snippet"><%= blog.snippet %></p>
+        <a class="single" href="/blogs/<%= blog._id %>">
+          <h3 class="title"><%= blog.title %></h3>
+          <p class="snippet"><%= blog.snippet %></p>
+        </a>
       <% }) %>
     <% } else { %>
       <p>There are no blogs to display at the moment...</p>
@@ -19,7 +21,7 @@
     
   </div>
 
-  <%- include("./partials/footer.ejs") %>
+  <%- include("../partials/footer.ejs") %>
 </div>
 
 </body>
